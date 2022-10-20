@@ -431,7 +431,7 @@ p{
 
   span {cursor:pointer; }
   .number{
-	  margin-top:55px;
+	  margin-top:35px;
 	  margin-left: 20px;
   }
   .minus, .plus{
@@ -454,4 +454,64 @@ font-size: 26px;
 	  border-radius:4px;
 display: inline-block;
 vertical-align: middle;
-	  
+  }
+.buto {
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	border-radius: 0.375rem;
+	border-color: #fc6262;
+	color: #fc6262;
+}
+
+
+.buto:hover{
+	background: linear-gradient(40deg,#ffd86f,#fc6262);
+	color: black;
+}
+
+
+
+
+.heart-like-button {
+	position: relative;
+	top:13px;
+	right: -7px;
+  }
+  .heart-like-button:before {
+	position: absolute;
+	top: 0;
+	left: 25px;
+	transform: rotate(-45deg);
+	transform-origin: 0 100%;
+	width: 25.6px;
+	height: 40px;
+	border-radius: 40px 40px 0 0;
+	background-color: wheat;
+	content: "";
+	cursor: pointer;
+	transition: background .4s;
+  }
+  .heart-like-button:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: rotate(45deg);
+	transform-origin :100% 100%;
+	width: 25.6px;
+	height: 40px;
+	border-radius: 40px 40px 0 0;
+	background-color: wheat;
+	content: "";
+	cursor: pointer;
+	transition: background .4s;
+  }
+  .heart-like-button.liked::before,
+  .heart-like-button.liked::after {
+	background-color: #d65076;
+  }
+  .heart-like-button.liked {
+	animation: liked .4s ease;
+  }
+  

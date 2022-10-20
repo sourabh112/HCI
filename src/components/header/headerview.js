@@ -18,7 +18,7 @@ export default class Header extends Component {
 	render() {
 		return (
 			<div id='headerContainer'>
-				<div id='logo'><Link to='/'>AMAKART</Link></div>
+				<div id='logo'><Link to='/'>CRAVINGS</Link></div>
 				<div id='headerSearchFormContainer' style={{marginLeft:`90px`}}>
 					<SearchForm
 						productSearchHandler={this.props.productSearchHandler}
