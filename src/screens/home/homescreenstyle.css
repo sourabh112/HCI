@@ -1,0 +1,61 @@
+.card1{
+	border-radius: 5%;
+	margin: 20px;
+	color: black;
+	box-shadow: rgb(209, 209, 213) 0px 5px 15px;
+}
+
+.card1:hover{
+	transform: scale(1.05);
+	transition: 0.75s;
+	/*box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;*/
+}
+
+.text{
+	padding: 1vw;
+	padding-top: 0.25vw; 
+	padding-bottom: 0.5vw;
+}
+
+.texthead{
+	font-size: 1.8vw;
+}
+
+.textdis{
+	margin-bottom: 0.5vw;
+	 font-size: 1vw;
+}
+
+.cardmajor{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	overflow: scroll;
+	/* z-index: -1	; */
+}
+.cardmajor::-webkit-scrollbar {
+    display: none;
+}
+
+.imclass{
+	width: 390px;
+	border-radius: 5% 5% 0% 0%;
+}
+
+.price{
+	margin-left: 90px;
+}
+
+.buto{
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	border-radius: 0.375rem;
+	border-color: #fc6262;
+	color: #fc6262;
+}
+
+.buto:hover{
+	background: linear-gradient(40deg,#ffd86f,#fc6262);
+	color: black;
+}

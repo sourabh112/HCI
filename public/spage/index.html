@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        *{
+    box-sizing: border-box;
+}
+body{
+    color: grey;
+    font-size: 25px;
+}
+#sidebar{
+    padding: 10px;
+    margin: 10px;
+    float: left;
+}
+#products{
+    padding: 10px;
+    margin: 0;
+    float: right;
+}
+ul{
+    list-style: none;
+    padding: 5px;
+}
+li a{
+    color: darkgray;
+    text-decoration: none;
+}
+li a:hover{
+    text-decoration: none;
+    color: darksalmon;
+}
+.fa-circle{
+    font-size: 20px;
+}
+#red{
+    color: #e94545d7;
+}
+#green{
+    color: rgb(22, 169, 58);
+}
+#blue{
+    color: #0000ff;
+}
+.card{
+    width: 250px;
+    display: inline-block;
+    height: 300px;
+}
+.card-img-top{
+    width: 250px;
+    height: 210px;
+}
+.card-body p{
+    margin: 2px;
+}
+.card-body{
+    padding: 0;
+    padding-left: 2px;
+}
+.filter{
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+.slidecontainer {
+  width: 100%;
+}
+    </style>
+</head>
+<body>
+    
+<div id='headerContainer'>
+	<div id='logo'><Link to='/'>AMAKART</Link></div>
+	<div id='headerSearchFormContainer' style="margin-left: 90px;">
+		<form id="searchForm"><input id="searchInput" type="text" placeholder="Search..." value="">
+            <button type="submit" id="searchButton" style="
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            width:60px;height: 29px;
+        ">
+                <a href="./spage/index.html" style="color: white;">search</a>
+            </button>
+        </form>
+	</div>
+	<div id='headerCartIcon'>
+	<div id='cartIconContainer'>
+		<i id="cartIcon" class="fa fa-shopping-cart"></i>
+        <span id='cartCounter'>0</span>
+		</div>
+	</div>
+	<div id='headerCartIcon'>
+	<div id='cartIconContainer'>
+			<img src = "./icon.png" style='height:45px'/>
+		</div>
+	</div>
+	<div id='signIn' style="height:40px;width:30px;border-radius:5%;margin:5px">SIGN IN</div>
+</div>
+    <div style="display: grid;  grid-template-columns: auto auto; margin-top: 50px;">
+    <div id="sidebar" style="box-shadow: 1px 1px 5px;width: 300px;height: 700px;">
+        <h3 class="p-1 border-bottom" style="color: black;">Filters</h3>
+        <div style="margin: 10px 0px;">
+            <p class="mb-2">Price</p>
+            <div class="range_container">
+                <div class="sliders_control">
+                   <input id="fromSlider" type="range" value="10" min="0" max="100"/>
+                   <input id="toSlider" type="range" value="30" min="0" max="100"/>
+                </div>
+                <div class="form_control">
+                  <div class="form_control_container">
+                      <div class="form_control_container__time">Min</div>
+                      <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="100"/>
+                    </div>
+                    <div class="form_control_container">
+                      <div class="form_control_container__time">Max</div>
+                      <input class="form_control_container__time__input" type="number" id="toInput" value="30" min="0" max="100"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <p class="mb-2">Type</p>
+            <ul class="list-group" style="display: grid; grid-template-columns: auto auto;">
+                <li class="list" ><a href="#" style="font-size: 20px;">
+                    <img src="./img/vegan.jpg" height="35px"></span>Vegan
+                </a></li>
+                <li class="list" ><a href="#" style="font-size: 20px;">
+                    <span class="fa fa-circle pr-1" id="green"></span>Veg
+                </a></li>
+                <li class="list" ><a href="#" style="font-size: 20px;">
+                    <img src="./img/egg.png" height="30px"></span> Egg
+                </a></li>
+                <li class="list" ><a href="#" style="font-size: 20px;">
+                    <span class="fa fa-circle pr-1" id="red"></span>Non-Veg
+                </a></li>
+            </ul>
+        </div>
+        <hr>
+        <div>
+            <p class="mb-2">Brands</p>
+            <ul class="list-group" style="display: grid; grid-template-columns: auto;">
+                <li class="list1" >
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> Open Oven</label><br>
+                </a></li>
+                <li class="list1" >
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1">Grover</label><br>
+                </a></li>
+                <li class="list1" >
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> Gopala</label><br>
+                </a></li>
+                <li class="list1" >
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1">Bikanerwala</label><br>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="products">
+    <div  class="cardmajor">
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img1.jpg" class="imclass"/>
+            <div class="text">
+            <div style="display:flex;">
+            <h3 class="texthead">Donut:    </h3>
+            <h3 class="texthead price" style="margin-left: 192px;">12$</h3>
+            </div>
+            <p class="textdis">A doughnut or donut is a type of food made from leavened fried dough. 
+                It is popular in many countries and is prepared in various forms as a sweet snack.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div>
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img2.jpg" class="imclass"/>
+            <div class="text">
+            <div style="
+                display:flex;">
+            <h3 class="texthead">Cheesecake:   </h3>
+            <h3 class="texthead price" style="margin-left: 122px;">20$</h3>
+            </div>
+            <p class="textdis">Cheesecake is a sweet dessert consisting of one or more layers. 
+                The main, and thickest, layer consists of a mixture of a soft, fresh cheese, eggs, and sugar.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div>
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img3.png" class="imclass"/>
+            <div class="text">
+            <div style="
+                display:flex;">
+            <h3 class="texthead">Lava cake: </h3>
+            <h3 class="texthead price" style="margin-left: 147px;">20$</h3>
+            </div>
+            <p class="textdis">Molten chocolate cake is a dessert that consists of a chocolate cake
+                 with a liquid chocolate core. It is named for that molten center,and it is also known as chocolate coulant.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div> 
+        
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img1.jpg" class="imclass"/>
+            <div class="text">
+            <div style="display:flex;">
+            <h3 class="texthead">Donut:    </h3>
+            <h3 class="texthead price" style="margin-left: 192px;">12$</h3>
+            </div>
+            <p class="textdis">A doughnut or donut is a type of food made from leavened fried dough. 
+                It is popular in many countries and is prepared in various forms as a sweet snack.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div>
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img2.jpg" class="imclass"/>
+            <div class="text">
+            <div style="
+                display:flex;">
+            <h3 class="texthead">Cheesecake:   </h3>
+            <h3 class="texthead price" style="margin-left: 122px;">20$</h3>
+            </div>
+            <p class="textdis">Cheesecake is a sweet dessert consisting of one or more layers. 
+                The main, and thickest, layer consists of a mixture of a soft, fresh cheese, eggs, and sugar.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div>
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img3.png" class="imclass"/>
+            <div class="text">
+            <div style="
+                display:flex;">
+            <h3 class="texthead">Lava cake: </h3>
+            <h3 class="texthead price" style="margin-left: 147px;">20$</h3>
+            </div>
+            <p class="textdis">Molten chocolate cake is a dessert that consists of a chocolate cake
+                 with a liquid chocolate core. It is named for that molten center,and it is also known as chocolate coulant.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div> 
+        
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img1.jpg" class="imclass"/>
+            <div class="text">
+            <div style="display:flex;">
+            <h3 class="texthead">Donut:    </h3>
+            <h3 class="texthead price" style="margin-left: 192px;">12$</h3>
+            </div>
+            <p class="textdis">A doughnut or donut is a type of food made from leavened fried dough. 
+                It is popular in many countries and is prepared in various forms as a sweet snack.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div>
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img2.jpg" class="imclass"/>
+            <div class="text">
+            <div style="
+                display:flex;">
+            <h3 class="texthead">Cheesecake:   </h3>
+            <h3 class="texthead price" style="margin-left: 122px;">20$</h3>
+            </div>
+            <p class="textdis">Cheesecake is a sweet dessert consisting of one or more layers. 
+                The main, and thickest, layer consists of a mixture of a soft, fresh cheese, eggs, and sugar.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div>
+        <div  class="card1">
+            <a href="../ppage/index.html">
+            <img src="./img/img3.png" class="imclass"/>
+            <div class="text">
+            <div style="
+                display:flex;">
+            <h3 class="texthead">Lava cake: </h3>
+            <h3 class="texthead price" style="margin-left: 147px;">20$</h3>
+            </div>
+            <p class="textdis">Molten chocolate cake is a dessert that consists of a chocolate cake
+                 with a liquid chocolate core. It is named for that molten center,and it is also known as chocolate coulant.</p>
+            </div>
+            <button style="margin-left:100px; margin-bottom:20px; padding: 10px;" type="button" class=" buto ">
+                <i class="fa fa-shopping-cart" style="font-size:30px margin-top:20px"></i>
+                Add to Cart
+            </button>
+        </a>
+        </div> 
+    </div>
+</div>
+    </div>
+</body>
+<script>
+function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+    if (from > to) {
+        fromSlider.value = to;
+        fromInput.value = to;
+    } else {
+        fromSlider.value = from;
+    }
+}
+    
+function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+    setToggleAccessible(toInput);
+    if (from <= to) {
+        toSlider.value = to;
+        toInput.value = to;
+    } else {
+        toInput.value = from;
+    }
+}
+
+function controlFromSlider(fromSlider, toSlider, fromInput) {
+  const [from, to] = getParsed(fromSlider, toSlider);
+  fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+  if (from > to) {
+    fromSlider.value = to;
+    fromInput.value = to;
+  } else {
+    fromInput.value = from;
+  }
+}
+
+function controlToSlider(fromSlider, toSlider, toInput) {
+  const [from, to] = getParsed(fromSlider, toSlider);
+  fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+  setToggleAccessible(toSlider);
+  if (from <= to) {
+    toSlider.value = to;
+    toInput.value = to;
+  } else {
+    toInput.value = from;
+    toSlider.value = from;
+  }
+}
+
+function getParsed(currentFrom, currentTo) {
+  const from = parseInt(currentFrom.value, 10);
+  const to = parseInt(currentTo.value, 10);
+  return [from, to];
+}
+
+function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+    const rangeDistance = to.max-to.min;
+    const fromPosition = from.value - to.min;
+    const toPosition = to.value - to.min;
+    controlSlider.style.background = `linear-gradient(
+      to right,
+      ${sliderColor} 0%,
+      ${sliderColor} ${(fromPosition)/(rangeDistance)*100}%,
+      ${rangeColor} ${((fromPosition)/(rangeDistance))*100}%,
+      ${rangeColor} ${(toPosition)/(rangeDistance)*100}%, 
+      ${sliderColor} ${(toPosition)/(rangeDistance)*100}%, 
+      ${sliderColor} 100%)`;
+}
+
+function setToggleAccessible(currentTarget) {
+  const toSlider = document.querySelector('#toSlider');
+  if (Number(currentTarget.value) <= 0 ) {
+    toSlider.style.zIndex = 2;
+  } else {
+    toSlider.style.zIndex = 0;
+  }
+}
+
+const fromSlider = document.querySelector('#fromSlider');
+const toSlider = document.querySelector('#toSlider');
+const fromInput = document.querySelector('#fromInput');
+const toInput = document.querySelector('#toInput');
+fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+setToggleAccessible(toSlider);
+
+fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
+</script>
+</html>

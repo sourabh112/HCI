@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Detail</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ 
+</head>
+<body>
+	 
+<div id='headerContainer'>
+	<div id='logo'><Link to='/'>AMAKART</Link></div>
+	<div id='headerSearchFormContainer' style="margin-left: 90px;">
+		<form id="searchForm"><input id="searchInput" type="text" placeholder="Search..." value="">
+            <button type="submit" id="searchButton" style="
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+			width:60px;height: 29px;
+        ">
+                <a href="./spage/index.html" style="color: white;">search</a>
+            </button>
+        </form>
+	</div>
+	<div id='headerCartIcon'>
+	<div id='cartIconContainer'>
+		<i id="cartIcon" class="fa fa-shopping-cart"></i>
+        <span id='cartCounter'>0</span>
+		</div>
+	</div>
+	<div id='headerCartIcon'>
+	<div id='cartIconContainer'>
+			<img src = "./icon.png" style='height:45px'/>
+		</div>
+	</div>
+	<div id='signIn' style="height:40px;width:30px;border-radius:5%;margin:5px">SIGN IN</div>
+</div>
+<div class="main" style="margin-top: 80px;">
+	<div class=" lap">
+		<ul class="sidepanel">
+			<li class="sidelist"><img src="img/img1.jpg" class="sideimage" onclick="main('image1')"></li>
+			<li class="sidelist"><img src="img/img2.jpg" class="sideimage" onclick="main('image2')"></li>
+			<li class="sidelist"><img src="img/img3.jpg" class="sideimage" onclick="main('image3')"></li>
+			<li class="sidelist"><img src="img/img4.jpg" class="sideimage" onclick="main('image4')"></li>
+			<li class="sidelist"><img src="img/img5.jpg" class="sideimage" onclick="main('image5')"></li>
+		</ul>
+	</div>
+	<div class=" lap">
+		<img src="img/img1.jpg" class="mainimage image1" style="display: block;">
+		<img src="img/img2.jpg" class="mainimage image2" style="display: none;">
+		<img src="img/img3.jpg" class="mainimage image3" style="display: none;">
+		<img src="img/img4.jpg" class="mainimage image4" style="display: none;">
+		<img src="img/img5.jpg" class="mainimage image5" style="display: none;">
+	</div>
+	<div class="mob">
+		<img src="img/img1.jpg" class="mainimage image.1" style="display: block;">
+		<img src="img/img2.jpg" class="mainimage image.2" style="display: none;">
+		<img src="img/img3.jpg" class="mainimage image.3" style="display: none;">
+		<img src="img/img4.jpg" class="mainimage image.4" style="display: none;">
+		<img src="img/img5.jpg" class="mainimage image.5" style="display: none;">
+	</div>
+	<div class="mob">
+		<ul class="sidepanel">
+			<li class="sidelist"><img src="img/img1.jpg" class="sideimage" onclick="main('image.1')"></li>
+			<li class="sidelist"><img src="img/img2.jpg" class="sideimage" onclick="main('image.2')"></li>
+			<li class="sidelist"><img src="img/img3.jpg" class="sideimage" onclick="main('image.3')"></li>
+			<li class="sidelist"><img src="img/img4.jpg" class="sideimage" onclick="main('image.4')"></li>
+			<li class="sidelist"><img src="img/img5.jpg" class="sideimage" onclick="main('image.5')"></li>
+		</ul>
+	</div>
+	<div class="dis">
+		<h1 class="description" style="margin-top: 80px;">Product Name</h1>
+		<p class="description1">
+			Descreption: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+			standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type 
+		</p>
+		<p style="width: 80%; text-align:center; background:#b1aaaa; margin-left:50px; opacity:0.9; padding:7px; font-family: sans-serif;"> <i class="fa fa-truck" aria-hidden="true"></i>
+			FREE DELIVERY</p>
+			<div class="description1" style="display: grid; grid-template-columns: 200px auto;">
+				<div>
+					<strike style="color: #b1aaaa;font-size: 30px;margin-left: 10px;">24$</strike>
+					<p style="margin: 0;font-size: 70px;">12$</p>
+				</div>
+				<div style="margin: 55px 0 0 0;font-size: 30px;">
+					
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>
+				</div>
+				<div style="margin-top: 40px;font-size: 50px;">
+					Quantity:
+				</div>
+				<div class="number">
+					<span class="minus">-</span>
+					<input type="text" value="1"/>
+					<span class="plus">+</span>
+				</div>
+			</div> 
+	</div>
+
+
+
+</div>
+</body>
+<script type="text/javascript">
+	function main(classname) {
+		var x = document.getElementsByClassName(classname)
+		var y = document.getElementsByClassName("mainimage")
+
+		for (var i = 0; i < y.length; i++) {
+			y[i].style.display="none";
+		}
+
+		x[0].style.display="block";
+	}
+	function info(classname,a) {
+		var x = document.getElementsByClassName(classname);
+		var y = document.getElementsByClassName("box");
+		var b = document.getElementsByClassName("but");
+		var z = document.getElementsByClassName(a);
+
+		for (var i = 0; i < y.length; i++) {
+			y[i].style.display="none";
+			b[i].style.boxShadow="0.4vw 0.8vw #888888";
+		}
+
+		x[0].style.display="block";
+		z[0].style.boxShadow="none";
+	}
+</script>
+</html>
